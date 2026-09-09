@@ -1,0 +1,193 @@
+Specifications:
+  Robot: "irb120"
+  EndEffector: "ParallelGripper"
+  EELink: "EE_egp64"
+  Objects: ["RedCube","GreenCube","WhiteCube","BlackCube","BlueCube"]
+
+Sequence: 
+  
+  # STEP 1 - HomePosition
+  # Type: MoveJ
+  # joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 90.0, joint6: 0.0
+  # Speed: 1.0
+  # Delay: 0.0
+
+  - Step: 1
+    Name: "[IRB120-CubePP(sim)]: MoveJ - HomePosition."
+    Type: "MoveJ"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      joint1: 0.0
+      joint2: 0.0
+      joint3: 0.0
+      joint4: 0.0
+      joint5: 90.0
+      joint6: 0.0
+  
+  # STEP 2 - PickApproach
+  # Type: RobMove, PTP
+  # x: 0.60, y: 0.70, z: 0.95, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0
+  # Speed: 1.0
+  # Delay: 0.0
+
+  - Step: 2
+    Name: "[IRB120-CubePP(sim)]: Cube - PickApproach."
+    Type: "RobMove"
+    Movement: "PTP"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      x: 0.60
+      y: 0.70
+      z: 0.95
+      qx: 0.0
+      qy: 1.0
+      qz: 0.0
+      qw: 0.0
+
+  # STEP 3 - Pick
+  # Type: RobMove, LIN
+  # x: 0.6, y: 0.7, z: 0.883, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0
+  # Speed: 0.1
+  # Delay: 1.0
+
+  - Step: 3
+    Name: "[IRB120-CubePP(sim)]: Cube - Pick."
+    Type: "RobMove"
+    Movement: "LIN"
+    Speed: 0.1
+    Delay: 1.0
+    Input:
+      x: 0.6
+      y: 0.7
+      z: 0.883
+      qx: 0.0
+      qy: 1.0
+      qz: 0.0
+      qw: 0.0
+
+  # STEP 4 - Close Gripper
+  # Type: ParallelGripper -> CLOSE
+  # Value: 35.0
+  # Delay: 1.0
+
+  - Step: 4
+    Name: "[IRB120-CubePP(sim)]: Close Gripper."
+    Type: "ParallelGripper"
+    Action: "CLOSE"
+    Value: 35.0
+    Delay: 1.0
+
+  # STEP 5 - LiftCube
+  # Type: RobMove, LIN
+  # x: 0.6, y: 0.7, z: 0.95, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0
+  # Speed: 0.1
+  # Delay: 0.0
+
+  - Step: 5
+    Name: "[IRB120-CubePP(sim)]: Cube - LiftCube."
+    Type: "RobMove"
+    Movement: "LIN"
+    Speed: 0.1
+    Delay: 0.0
+    Input:
+      x: 0.6
+      y: 0.7
+      z: 0.95
+      qx: 0.0
+      qy: 1.0
+      qz: 0.0
+      qw: 0.0
+
+  # STEP 6 - PlaceApproach
+  # Type: RobMove, PTP
+  # x: 0.525, y: 0.125, z: 1.0, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0
+  # Speed: 1.0
+  # Delay: 0.0
+
+  - Step: 6
+    Name: "[IRB120-CubePP(sim)]: Cube - PlaceApproach."
+    Type: "RobMove"
+    Movement: "PTP"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      x: 0.525
+      y: 0.125
+      z: 1.0
+      qx: 0.0
+      qy: 1.0
+      qz: 0.0
+      qw: 0.0
+
+  # STEP 7 - Place
+  # Type: RobMove, LIN
+  # x: 0.525, y: 0.125, z: 0.925, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0
+  # Speed: 0.1
+  # Delay: 1.0
+
+  - Step: 7
+    Name: "[IRB120-CubePP(sim)]: Cube - Place."
+    Type: "RobMove"
+    Movement: "LIN"
+    Speed: 0.1
+    Delay: 1.0
+    Input:
+      x: 0.525
+      y: 0.125
+      z: 0.925
+      qx: 0.0
+      qy: 1.0
+      qz: 0.0
+      qw: 0.0
+
+  # STEP 8 - Open Gripper
+  # Type: ParallelGripper ->OPEN
+  # Delay: 1.0
+
+  - Step: 8
+    Name: "[IRB120-CubePP(sim)]: Open Gripper."
+    Type: "ParallelGripper"
+    Action: "OPEN"
+    Delay: 1.0
+
+  # STEP 9 - PlaceApproach
+  # Type: RobMove, LIN
+  # x: 0.525, y: 0.125, z: 1.0, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0
+  # Speed: 0.1
+  # Delay: 0.0
+
+  - Step: 9
+    Name: "[IRB120-CubePP(sim)]: Cube - PlaceApproach."
+    Type: "RobMove"
+    Movement: "LIN"
+    Speed: 0.1
+    Delay: 0.0
+    Input:
+      x: 0.525
+      y: 0.125
+      z: 1.0
+      qx: 0.0
+      qy: 1.0
+      qz: 0.0
+      qw: 0.0
+
+  # STEP 10 - HomePosition
+  # Type: MoveJ
+  # joint1: 0.0, joint2: 0.0, joint3: 0.0, joint4: 0.0, joint5: 90.0, joint6: 0.0
+  # Speed: 1.0
+  # Delay: 0.0
+
+  - Step: 10
+    Name: "[IRB120-CubePP(sim)]: MoveJ - HomePosition."
+    Type: "MoveJ"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      joint1: 0.0
+      joint2: 0.0
+      joint3: 0.0
+      joint4: 0.0
+      joint5: 90.0
+      joint6: 0.0

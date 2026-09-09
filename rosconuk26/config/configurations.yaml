@@ -1,0 +1,35 @@
+# ROSCon UK 2026 - ABB IRB-120 Cranfield University Robot Cell:
+
+Configurations:
+
+  - ID: "irb120"
+    Name: "ABB IRB-120 Robot alone on top of a Robot Stand (ros2srrc standard configuration)."
+    urdf: "irb120.urdf.xacro"
+    rob: "irb120"
+    ee: "none"
+  
+  - ID: "rosconuk26_1"
+    Name: "ABB IRB-120 Robot alone on Cranfield University (IA Lab) Enclosure."
+    urdf: "rosconuk26_1.urdf.xacro"
+    rob: "irb120"
+    ee: "none"
+
+  - ID: "rosconuk26_2"
+    Name: "ABB IRB-120 Robot + Schunk EGP-64 Gripper on Cranfield University (IA Lab) Enclosure. Cube Pick-Place use case."
+    urdf: "rosconuk26_2.urdf.xacro"
+    rob: "irb120"
+    ee: "egp64"
+
+  - ID: "rosconuk26_3"
+    Name: "ABB IRB-120 Robot + Schunk EGP-64 Gripper on Cranfield University (IA Lab) Enclosure. Cube detection and pose estimation use case."
+    urdf: "rosconuk26_3.urdf.xacro"
+    rob: "irb120"
+    ee: "egp64"
+
+# ***** REMEMBER ***** #
+
+# PACKAGE set: This package-set is named rosconuk26, and that is the name that comes under the package:="" input argument in the launch file.
+
+# ID: Name of the configuration -> This is the name that will be used to identify the configuration in the launch file.
+# urdf: Name of the URDF file of that specific ROBOT CELL CONFIGURATION.
+# rob + ee: Robot + End-Effector names -> Required for the LAUNCH FILE to load the correct ROS 2 Control and MoveIt 2 configurations.

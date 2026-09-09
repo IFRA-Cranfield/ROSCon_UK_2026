@@ -1,0 +1,80 @@
+Specifications:
+  Robot: "irb120"
+  EndEffector: None
+  EELink: None
+  Objects: None
+
+Sequence: 
+  
+  - Step: 1
+    Name: "[IRB120-Demo]: MoveJ - HomePosition."
+    Type: "MoveJ"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      joint1: 0.0
+      joint2: 0.0
+      joint3: 0.0
+      joint4: 0.0
+      joint5: 90.0
+      joint6: 0.0
+
+  - Step: 2
+    Name: "[IRB120-Demo]: MoveR - Rotate Joint1 -45.0 degrees."
+    Type: "MoveR"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      joint: "joint1"
+      value: -45.0
+
+  - Step: 3
+    Name: "[IRB120-Demo]: MoveR - Rotate Joint1 +135.0 degrees."
+    Type: "MoveR"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      joint: "joint1"
+      value: +135.0
+
+  - Step: 4
+    Name: "[IRB120-Demo]: MoveR - Rotate Joint1 -90.0 degrees."
+    Type: "MoveR"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      joint: "joint1"
+      value: -90.0
+
+  - Step: 5
+    Name: "[IRB120-Demo]: MoveL - -0.3m in z axis."
+    Type: "MoveL"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      x: 0.0
+      y: 0.0
+      z: -0.3
+
+  - Step: 6
+    Name: "[IRB120-Demo]: MoveL - 0.2m in x axis."
+    Type: "MoveL"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      x: 0.2
+      y: 0.0
+      z: 0.0
+
+  - Step: 7
+    Name: "[IRB120-Demo]: MoveJ - HomePosition."
+    Type: "MoveJ"
+    Speed: 1.0
+    Delay: 0.0
+    Input:
+      joint1: 0.0
+      joint2: 0.0
+      joint3: 0.0
+      joint4: 0.0
+      joint5: 90.0
+      joint6: 0.0

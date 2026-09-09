@@ -1,0 +1,5 @@
+# Keep local metadata and build artifacts out of the Docker build context.
+.git
+build
+install
+log
