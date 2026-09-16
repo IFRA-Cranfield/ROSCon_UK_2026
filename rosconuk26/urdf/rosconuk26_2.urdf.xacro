@@ -71,8 +71,7 @@
   <xacro:unless value="${bringup}">
     
     <gazebo>
-      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
-        <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+      <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
 
         <!-- IRB120 Controller -->
         <parameters>$(find ros2srrc_robots)/irb120/config/controller.yaml</parameters>
@@ -99,12 +98,12 @@
     <collision>
       <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="file://$(find rosconuk26)/meshes/irb120enclosure/IRB120enclosure.dae" scale="1 1 1" />
+        <mesh filename="file://$(find rosconuk26)/meshes/irb120enclosure/IRB120enclosure.stl" scale="1 1 1" />
       </geometry>
     </collision>
     <inertial>
       <mass value="1000.0"/>
-      <inertia ixx="500.0" ixy="500.0" ixz="500.0" iyy="500.0" iyz="500.0" izz="500.0" />
+      <inertia ixx="200.0" ixy="0.0" ixz="0.0" iyy="200.0" iyz="0.0" izz="200.0"/>
     </inertial>
   </link>
 
@@ -138,7 +137,7 @@
     </collision>
     <inertial>
       <mass value="10.0"/>
-      <inertia ixx="500.0" ixy="500.0" ixz="500.0" iyy="500.0" iyz="500.0" izz="500.0" />
+      <inertia ixx="200.0" ixy="0.0" ixz="0.0" iyy="200.0" iyz="0.0" izz="200.0"/>
     </inertial>
   </link>
 

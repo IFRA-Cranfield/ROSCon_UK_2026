@@ -107,9 +107,9 @@ def main(args=None):
     '''
 
         REFERENCES:
-        - Move() function call: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/ros2srrc_execution/python/testClients/test_Move.py
-        - RobMove() function call: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/ros2srrc_execution/python/testClients/test_RobMove.py
-        - Parallel Gripper - Endeffector() function call: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/ros2srrc_execution/python/testClients/test_PG.py
+        - Move() function call: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_execution/python/testClients/test_Move.py
+        - RobMove() function call: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_execution/python/testClients/test_RobMove.py
+        - Parallel Gripper - Endeffector() function call: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_execution/python/testClients/test_PG.py
 
         WAYPOINTS:
         - Same as for the cubePP.yaml file.

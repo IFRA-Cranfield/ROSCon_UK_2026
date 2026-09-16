@@ -2,9 +2,9 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ROS2EnvironmentLaunch.md for better detail about the ROS 2 Environment Launch process.
-- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics for more detail about how the ROS 2 Gazebo + MoveIt 2 Packages were built for Cranfield University's ABB IRB-120 Robot Cell.
-- https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics for more detail about how the ROS 2 Gazebo + MoveIt 2 Packages were built for Cranfield University's UR3 Robot Cell.
+- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/instructions/ROS2EnvironmentLaunch.md for better detail about the ROS 2 Environment Launch process.
+- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/tree/jazzy for more detail about how the ROS 2 Gazebo + MoveIt 2 Packages were built for Cranfield University's ABB IRB-120 Robot Cell.
+- https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics/tree/jazzy for more detail about how the ROS 2 Gazebo + MoveIt 2 Packages were built for Cranfield University's UR3 Robot Cell.
 
 </br>
 
@@ -31,8 +31,12 @@ The package should follow the standard ROS 2 package structure and contain the f
 
 - **`urdf` folder**
   - This folder contains the URDF or Xacro descriptions of the robot-cell configurations.
-  - It includes the URDF files for the different robot configurations and the URDF files describing individual objects within the cell.
   - These files also define how standard robot and end-effector descriptions from the `ros2srrc_robots` and `ros2srrc_endeffectors` packages are imported, positioned, and connected to the rest of the environment.
+
+- **`sdf` folder**
+  - This folder contains the SDF model descriptions used to spawn objects in Gazebo Sim.
+  - These files define each object's physical properties, visual and collision meshes, and any Gazebo Sim plugins associated with it.
+  - In this repository, the colour-specific cube files (`BlueCube.sdf`, `GreenCube.sdf`, `RedCube.sdf`, `WhiteCube.sdf`, and `BlackCube.sdf`) define the cube models used in the pick-and-place and object-pose estimation use cases.
 
 - **`programs` folder (optional)**
   - This folder can be used to store static robot programs.
@@ -85,8 +89,10 @@ ros2 launch ros2srrc_launch moveit2.launch.py package:=PACKAGE_NAME config:=CONF
 # Gazebo Simulation:
 ros2 launch ros2srrc_launch simulation.launch.py package:=rosconuk26 config:=rosconuk26_1
 ros2 launch ros2srrc_launch simulation.launch.py package:=rosconuk26 config:=rosconuk26_2
+ros2 launch ros2srrc_launch simulation.launch.py package:=rosconuk26 config:=rosconuk26_3
 
 # Gazebo Simulation + MoveIt 2 Framework:
 ros2 launch ros2srrc_launch moveit2.launch.py package:=rosconuk26 config:=rosconuk26_1
 ros2 launch ros2srrc_launch moveit2.launch.py package:=rosconuk26 config:=rosconuk26_2
+ros2 launch ros2srrc_launch moveit2.launch.py package:=rosconuk26 config:=rosconuk26_3
 ```

@@ -2,9 +2,9 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ProgramExecution.md for more detailed instructions on how Robot Programs are executed using the __ExecuteProgram__ tool.
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
-- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/humble/instructions/Examples.md for more detail about how Cranfield University's ABB IRB-120 Robot Cell is operated (irb120_CranfieldRobotics package).
+- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/instructions/ProgramExecution.md for more detailed instructions on how Robot Programs are executed using the __ExecuteProgram__ tool.
+- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
+- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/jazzy/instructions/Examples.md for more detail about how Cranfield University's ABB IRB-120 Robot Cell is operated (irb120_CranfieldRobotics package).
 
 ## C2: Create a Pick&Place Robot Program using the ExecuteProgram Tool
 
@@ -63,7 +63,7 @@ _Execution Steps (cubePP Program)_
 
 3. Spawn the BlackCube to the Simulation Environment, to the following location:
     ```sh
-    ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "BlackCube" --x 0.60 --y 0.70 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --sdf "BlackCube.sdf" --name "BlackCube" --x 0.60 --y 0.70 --z 0.95
     ```
 
 4. Execute the CubePP Robot Program:

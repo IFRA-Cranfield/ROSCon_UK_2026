@@ -37,6 +37,7 @@ install(
     config
     meshes
     programs
+    sdf
     urdf 
   DESTINATION 
     share/${PROJECT_NAME}

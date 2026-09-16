@@ -33,7 +33,7 @@
 
 <!--
 
-  README.md TEMPLATE obtined from:
+  README.md template obtained from:
       https://github.com/othneildrew/Best-README-Template
       AUTHOR: OTHNEIL DREW 
 
@@ -110,11 +110,11 @@ We encourage you to actively participate, ask questions, and share your own insi
 
 The IFRA-Cranfield/ROSCon_UK_2026 repository contains all the exercises, resources, and example solutions that will be used during the workshop. Having it installed in advance will ensure you can follow each step, replicate demonstrations, and continue experimenting after the session.  
 
-The repository has 3 branches, which means that is available for 3 different ROS 2 environments:
+The repository has 3 branches, which means that it is available for 3 different ROS 2 environments:
 
 - humble: Ubuntu 22.04, ROS 2 Humble, and Gazebo Classic
-- humble_gzfortress: Ubuntu 22.04, ROS 2 Humble, and Gazebo (Ignition) Fortress
-- jazzy: Ubuntu 24.04, ROS 2 Jazzy, and Gazebo (Ignition) Harmonic
+- humble-gzfortress: Ubuntu 22.04, ROS 2 Humble, and Gazebo Fortress
+- jazzy: Ubuntu 24.04, ROS 2 Jazzy, and Gazebo Harmonic
 
 ### Intelligent Flexible Robotics and Assembly Group
 
@@ -142,14 +142,14 @@ Centre for Robotics and Assembly:
 <!-- DOCUMENTATION -->
 ## Documentation
 
-__INSTALLATION__: Before the workshop, please make sure you follow the installation instructions, which can be found [here](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble/instructions). The repository can be installed and the ROS 2 environment can be reproduced and the tasks executed in 2 different ways:
+__INSTALLATION__: Before the workshop, please make sure you follow the installation instructions, which can be found [here](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/jazzy/instructions). The repository can be installed and the ROS 2 environment can be reproduced and the tasks executed in 2 different ways:
 
-- By installing ROS 2 Humble, all the required packages and the ROSCon_UK_26 repository on a Ubuntu 22.04 PC.
+- By installing ROS 2 Jazzy, all the required packages and the ROSCon_UK_2026 repository on an Ubuntu 24.04 PC.
 - By building and running the provided rosconuk26-docker image.
 
-__TASKS__: The instructions to undertake the practical exercises can be found in the [tasks folder](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble/tasks).
+__TASKS__: The instructions to undertake the practical exercises can be found in the [tasks folder](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/jazzy/tasks).
 
-__SOLUTIONS__: Some of the solutions to the exercises can be found in the [solutions folder](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble/solutions), humble-solution branch.
+__SOLUTIONS__: Some of the solutions to the exercises can be found in the [solutions folder](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/jazzy/solutions).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

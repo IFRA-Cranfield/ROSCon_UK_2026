@@ -1,6 +1,6 @@
 # Installation - Docker
 
-This workshop is based on [ros2_SimRealRobotControl (ros2srrc)](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl), an open-source framework developed by the IFRA-Cranfield Research Group at Cranfield University. This installation uses Docker to create an **Ubuntu 22.04 environment with ROS 2 Humble, Gazebo Classic, ROS 2 Control, MoveIt 2 and ros2srrc**, together with the robot drivers and computer vision libraries required for the workshop.
+This workshop is based on [ros2_SimRealRobotControl (ros2srrc)](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/jazzy), an open-source framework developed by the IFRA-Cranfield Research Group at Cranfield University. This installation uses Docker to create an **Ubuntu 24.04 environment with ROS 2 Jazzy, Gazebo Harmonic, ROS 2 Control, MoveIt 2 and ros2srrc**, together with the robot drivers and computer vision libraries required for the workshop.
 
 The software is installed and built inside a Docker image. You do not need to install ROS 2 or Gazebo on your computer directly. When you start a container from this image, you can run the workshop commands inside it and display Gazebo and RViz on your Ubuntu desktop.
 
@@ -8,7 +8,7 @@ This guide uses **development mode**: you edit the workshop repository on your c
 
 The requirements are:
 
-- **An Ubuntu desktop computer with a 64-bit Intel or AMD processor.** The host does not have to run Ubuntu 22.04; Ubuntu 24.04 can also host the Ubuntu 22.04 container. Use a release supported by [Docker Engine for Ubuntu](https://docs.docker.com/engine/install/ubuntu/#os-requirements).
+- **An Ubuntu desktop computer with a 64-bit Intel or AMD processor.** The host does not have to run Ubuntu 24.04; Ubuntu 22.04 can also host the Ubuntu 24.04 container. Use a release supported by [Docker Engine for Ubuntu](https://docs.docker.com/engine/install/ubuntu/#os-requirements).
 - **Docker Engine**, installed in Part A, and access to `sudo`.
 - **A graphical desktop session** for Gazebo and RViz. The execution commands below use X11; an **Ubuntu on Xorg** login session is the most straightforward option.
 - **An internet connection and sufficient free disk space** for the base image, dependencies and compiled workspace. Allow several tens of GB of free space for the image and build cache.
@@ -77,13 +77,13 @@ This section installs Docker Engine using its official Ubuntu package repository
 
 The local repository contains the [Dockerfile](../docker/Dockerfile), the `rosconuk26` ROS 2 package, the workshop tasks and their solutions. Keep this checkout on your computer so you can edit the exercise files with your usual editor.
 
-5. Download the **humble** branch:
+5. Download the **jazzy** branch:
 
     ```sh
     # HOST:
     mkdir -p ~/dev_ws/src
     cd ~/dev_ws/src
-    git clone -b humble https://github.com/IFRA-Cranfield/ROSCon_UK_2026.git
+    git clone -b jazzy https://github.com/IFRA-Cranfield/ROSCon_UK_2026.git
     ```
 
 ## PART C: Build the Docker Image
@@ -95,10 +95,10 @@ The Dockerfile installs the workshop dependencies, downloads the supporting repo
     ```sh
     # HOST:
     cd ~/dev_ws/src/ROSCon_UK_2026
-    sudo docker build -f docker/Dockerfile -t rosconuk26:humble .
+    sudo docker build -f docker/Dockerfile -t rosconuk26:jazzy .
     ```
 
-    The final `.` selects the current directory as the build context, including the local workshop files. The name `rosconuk26:humble` identifies the resulting image. Wait for the build to finish successfully before starting a container.
+    The final `.` selects the current directory as the build context, including the local workshop files. The name `rosconuk26:jazzy` identifies the resulting image. Wait for the build to finish successfully before starting a container.
 
     The first build downloads and compiles the environment and can take some time. Subsequent builds reuse completed steps where possible. For more detailed build output, add `--progress=plain` to the command.
 
@@ -106,7 +106,7 @@ The Dockerfile installs the workshop dependencies, downloads the supporting repo
 
     ```sh
     # HOST:
-    sudo docker image ls rosconuk26:humble
+    sudo docker image ls rosconuk26:jazzy
     ```
 
 ## Execution Instructions
@@ -140,11 +140,11 @@ The following steps create a named container, `rosconuk26-docker`, and connect y
         --mount type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix,readonly \
         --mount "type=bind,source=$(pwd),target=/dev_ws/src/ROSCon_UK_2026" \
         --workdir /dev_ws \
-        rosconuk26:humble \
+        rosconuk26:jazzy \
         bash
     ```
     
-    You are now inside the container. The image automatically sources ROS 2 Humble and `/dev_ws/install/local_setup.bash` when an interactive Bash terminal opens.
+    You are now inside the container. The image automatically sources ROS 2 Jazzy and `/dev_ws/install/local_setup.bash` when an interactive Bash terminal opens.
 
 10. Build the current workshop files and check the environment:
 
@@ -159,7 +159,7 @@ The following steps create a named container, `rosconuk26-docker`, and connect y
     ros2 pkg prefix rosconuk26
     ```
 
-    The expected results are `humble` and `/dev_ws/install/rosconuk26`. This rebuild ensures the installed package matches the local checkout mounted into the container, including changes made since the image was built.
+    The expected results are `jazzy` and `/dev_ws/install/rosconuk26`. This rebuild ensures the installed package matches the local checkout mounted into the container, including changes made since the image was built.
 
 11. Launch a workshop robot cell with Gazebo and MoveIt 2:
 
@@ -237,3 +237,34 @@ The following steps create a named container, `rosconuk26-docker`, and connect y
     ```
 
     Removing the container deletes its internal builds and any files saved only inside it. Your mounted workshop checkout remains on the host. Also recreate the container if the host checkout moves or your `DISPLAY` value changes, because the mount path and display setting are fixed when the container is created.
+
+_EXTRA ->_ Use the NVIDIA GPU to render the simulation environment and run the tasks inside Docker:
+
+```sh
+# HOST - Install nvidia-container-toolkit:
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+
+# HOST - Run the Docker image using the following command:
+cd ~/dev_ws/src/ROSCon_UK_2026
+sudo docker run -it \
+    --name rosconuk26-docker \
+    --network host \
+    --ipc=host \
+    --shm-size=2g \
+    --gpus all \
+    --env NVIDIA_VISIBLE_DEVICES=all \
+    --env NVIDIA_DRIVER_CAPABILITIES=graphics,compute,utility,display \
+    --env DISPLAY="$DISPLAY" \
+    --env QT_X11_NO_MITSHM=1 \
+    --env QT_QPA_PLATFORM=xcb \
+    --device /dev/dri \
+    --group-add video \
+    --mount type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix,readonly \
+    --mount "type=bind,source=$(pwd),target=/dev_ws/src/ROSCon_UK_2026" \
+    --workdir /dev_ws \
+    rosconuk26:jazzy \
+    bash
+```
