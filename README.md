@@ -226,6 +226,15 @@ __SOLUTIONS__: Some of the solutions to the exercises can be found in the [solut
   <br />
   Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415 
   <br />
+  <br />
+  Naroa Núñez-Calvo - PhD Student and Researcher at Ikerlan S. Coop.
+  <br />
+  E-mail: nnunez@ikerlan.es
+  <br />
+  LinkedIn: https://www.linkedin.com/in/naroa-nunez-calvo/
+  <br />
+  Profile: https://www.ikerlan.es/en/technologies/control-robotics
+  <br />
 </p>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
