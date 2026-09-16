@@ -182,7 +182,7 @@ The installation also includes the modified MoveIt 2 interface required by ros2s
 
     # IFRA-Cranfield/ur3_CranfieldRobotics:
     cd ~/dev_ws/src
-    git clone https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics.git
+    git clone https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics.git
 
     # Build:
     cd ~/dev_ws
