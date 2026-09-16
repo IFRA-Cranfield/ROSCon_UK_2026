@@ -91,7 +91,7 @@
 
 ### Open-Source Tool for the Simulation and Control of any Robot Arm in ROS 2
 
-We are excited to welcome you to our hands-on workshop at ROSCon UK 2026, where we will explore a modular, open-source framework for simulating and controlling robot manipulators using ROS 2, MoveIt 2, and Gazebo. The framework is called ros2_SimRealRobotControl (ros2srrc), and is publicly available at https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.
+We are excited to welcome you to our hands-on workshop at ROSCon UK 2026, where we will explore a modular, open-source framework for simulating and controlling robot manipulators using ROS 2, MoveIt 2, and Gazebo. The framework is called ros2_SimRealRobotControl (ros2srrc), and is publicly available at https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/jazzy.
 
 Developed by the IFRA-Cranfield Research Group at Cranfield University, this framework is designed to streamline the design, deployment, and operation of robotic workcells—whether you are working on industrial robots, collaborative robots, or research prototypes. Our aim is to provide you with a standardised, reusable, and flexible development workflow that supports teaching, research, prototyping, and real-world applications. 
 
@@ -225,6 +225,15 @@ __SOLUTIONS__: Some of the solutions to the exercises can be found in the [solut
   LinkedIn: https://www.linkedin.com/in/phil-webb-64283223/
   <br />
   Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415 
+  <br />
+  <br />
+  Naroa Núñez-Calvo - PhD Student and Researcher at Ikerlan S. Coop.
+  <br />
+  E-mail: nnunez@ikerlan.es
+  <br />
+  LinkedIn: https://www.linkedin.com/in/naroa-nunez-calvo/
+  <br />
+  Profile: https://www.ikerlan.es/en/technologies/control-robotics
   <br />
 </p>
 
