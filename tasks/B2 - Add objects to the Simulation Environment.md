@@ -38,9 +38,9 @@ ros2 run ros2srrc_execution SpawnObject.py --package "{}" --urdf "{}.urdf" --nam
 For this command to work properly, the URDF files of the objects to spawn have to be located inside the urdf/objects folder of a ROS 2 Package. Then:
 
 - package: The name of the ROS 2 Package -> rosconuk26
-- urdf: The name of the URDF file -> cube.urdf
-- name: For the cube.urdf file, the <name> tag is a reference to the mesh file to be imported: BlueCube, GreenCube, RedCube, WhiteCube, BlackCube.
-- x, y, z: 3D-coordinates where the object is spawned.
+- urdf: The name of the URDF files -> RedCube.urdf, WhiteCube.urdf, BlueCube.urdf, GreenCube.urdf, BlackCube.urdf
+- name: The <name> tag is a reference that Gazebo physics, the LinkAttacher plugin, and the ObjectPoseEstimation node use to name/label/identify the object in the sim environment: BlueCube, GreenCube, RedCube, WhiteCube, BlackCube.
+- x, y, z: 3D-coordinates where the object is spawned. 
 
 __TASK__
 
@@ -67,11 +67,11 @@ ros2 launch ros2srrc_launch simulation.launch.py package:=rosconuk26 config:=ros
 
 After launching the simulation environment, you can spawn the objects within the Robot Cell:
 ```sh
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "RedCube" --x 0.60 --y 0.70 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "BlueCube" --x 0.60 --y 0.70 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "WhiteCube" --x 0.60 --y 0.70 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "GreenCube" --x 0.60 --y 0.70 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "BlackCube" --x 0.60 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "RedCube.urdf" --name "RedCube" --x 0.60 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "BlueCube.urdf" --name "BlueCube" --x 0.70 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "WhiteCube.urdf" --name "WhiteCube" --x 0.60 --y 0.60 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "GreenCube.urdf" --name "GreenCube" --x 0.70 --y 0.80 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "BlackCube.urdf" --name "BlackCube" --x 0.70 --y 0.60 --z 0.95
 ```
 
 Feel free to play and change the x, y, and z values!

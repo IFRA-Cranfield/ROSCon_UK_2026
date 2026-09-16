@@ -73,10 +73,10 @@ _Execution Steps (PositionEstimation.py first, cubePP_detection.py second)_
 ros2 launch ros2srrc_launch moveit2.launch.py package:=rosconuk26 config:=rosconuk26_3
 
 # 2. Spawn a cube within the environment (feel free to modify the x,y values):
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "BlueCube" --x 0.6 --y 0.55 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "GreenCube" --x 0.6 --y 0.55 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "WhiteCube" --x 0.6 --y 0.55 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "RedCube.urdf" --name "RedCube" --x 0.60 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "BlueCube.urdf" --name "BlueCube" --x 0.70 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "WhiteCube.urdf" --name "WhiteCube" --x 0.60 --y 0.60 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "GreenCube.urdf" --name "GreenCube" --x 0.70 --y 0.60 --z 0.95
 
 # 3. Please note that, for the PositionEstimation node to work properly, the ArUco grid must be completely visible! A safe pose would be:
 ros2 action send_goal -f /Move ros2srrc_data/action/Move "{action: 'MoveJ', movej: {joint1: 0.00, joint2: -30.00, joint3: 30.00, joint4: 0.00, joint5: 90.00, joint6: 0.00}, speed: 1.0}"

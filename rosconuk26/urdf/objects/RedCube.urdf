@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<robot name="cube" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="RedCube" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- Input parameters: -->
   <xacro:arg name="name" default="none"/>
@@ -23,7 +23,7 @@
 
       <origin xyz= "0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find rosconuk26)/meshes/objects/${name}.dae"/>
+        <mesh filename="file://$(find rosconuk26)/meshes/objects/RedCube.dae"/>
       </geometry>
 
     </collision>
@@ -32,7 +32,7 @@
 
       <origin xyz= "0.0 0.0 0.0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="file://$(find rosconuk26)/meshes/objects/${name}.dae"/>
+        <mesh filename="file://$(find rosconuk26)/meshes/objects/RedCube.dae"/>
       </geometry>
 
     </visual>

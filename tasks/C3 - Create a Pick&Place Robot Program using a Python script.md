@@ -60,7 +60,7 @@ _Execution Steps (cubePP.py program)_
 
 3. Spawn the BlackCube to the Simulation Environment, to the following location:
     ```sh
-    ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "BlackCube" --x 0.60 --y 0.70 --z 0.95
+    ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "BlackCube.urdf" --name "BlackCube" --x 0.60 --y 0.70 --z 0.95
     ```
 
 4. Execute the CubePP Robot Program:
