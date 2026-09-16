@@ -2,14 +2,14 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/tree/humble/irb120cranfield_ope -> Location of the object pose estimation package for the ABB IRB-120 Cranfield University Cell.
-- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/humble/instructions/Examples.md for more detail about how the irb120cranfield_ope is executed. 
-- https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics/tree/humble/ur3cranfield_ope -> Location of the object pose estimation package for the UR3 Cranfield University Cell.
-- https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics/blob/humble/instructions/Examples.md for more detail about how the ur3cranfield_ope is executed. 
+- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/tree/humble-gzfortress/irb120cranfield_ope -> Location of the object pose estimation package for the ABB IRB-120 Cranfield University Cell.
+- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/humble-gzfortress/instructions/Examples.md for more detail about how the irb120cranfield_ope is executed. 
+- https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics/tree/humble-gzfortress/ur3cranfield_ope -> Location of the object pose estimation package for the UR3 Cranfield University Cell.
+- https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics/blob/humble-gzfortress/instructions/Examples.md for more detail about how the ur3cranfield_ope is executed. 
 
-## C4: Object detection, pose estimation, and pick&place using YOLO and OpenCV in ROS 2
+## C4: Object detection, pose estimation, and pick-and-place using YOLO and OpenCV in ROS 2
 
-In this task, you will learn how to combine OpenCV, YOLO and the python primitives learnt in C3 to obtain an object detection, pose estimation and pick&place task using ROS 2 and Python.
+In this task, you will learn how to combine OpenCV, YOLO and the Python primitives learnt in C3 to obtain an object detection, pose estimation and pick-and-place task using ROS 2 and Python.
 
 __ros2srrc -> Integration of YOLO and OpenCV__
 
@@ -23,7 +23,7 @@ Once a cube's position has been estimated, its coordinates are provided as input
 
 The perception and robot-operation functionality are distributed across three Python scripts located in the package's `ope` folder:
 
-- **`arucogrid.py`**
+- **`arucoGRID.py`**
   - Contains the functions required to detect the ArUco markers.
   - Uses the known geometry of the ArUco grid to calibrate the camera view.
   - Calculates the pixel-to-distance conversion required to convert image coordinates into real-world coordinates for the robot cell.
@@ -72,11 +72,11 @@ _Execution Steps (PositionEstimation.py first, cubePP_detection.py second)_
 # 1. Launch the simulation environment:
 ros2 launch ros2srrc_launch moveit2.launch.py package:=rosconuk26 config:=rosconuk26_3
 
-# 2. Spawn a cube within the environment (feel free to modify the x,y values):
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "BlueCube" --x 0.6 --y 0.55 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "GreenCube" --x 0.6 --y 0.55 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "RedCube" --x 0.6 --y 0.55 --z 0.95
-ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --urdf "cube.urdf" --name "WhiteCube" --x 0.6 --y 0.55 --z 0.95
+# 2. Spawn cubes within the environment (feel free to modify the x,y values):
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --sdf "RedCube.sdf" --name "RedCube" --x 0.60 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --sdf "BlueCube.sdf" --name "BlueCube" --x 0.70 --y 0.70 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --sdf "WhiteCube.sdf" --name "WhiteCube" --x 0.60 --y 0.60 --z 0.95
+ros2 run ros2srrc_execution SpawnObject.py --package "rosconuk26" --sdf "GreenCube.sdf" --name "GreenCube" --x 0.70 --y 0.60 --z 0.95
 
 # 3. Please note that, for the PositionEstimation node to work properly, the ArUco grid must be completely visible! A safe pose would be:
 ros2 action send_goal -f /Move ros2srrc_data/action/Move "{action: 'MoveJ', movej: {joint1: 0.00, joint2: -30.00, joint3: 30.00, joint4: 0.00, joint5: 90.00, joint6: 0.00}, speed: 1.0}"
@@ -89,4 +89,17 @@ ros2 run rosconuk26 cubePP_detection.py cube:=BlueCube
 ros2 run rosconuk26 cubePP_detection.py cube:=GreenCube
 ros2 run rosconuk26 cubePP_detection.py cube:=RedCube
 ros2 run rosconuk26 cubePP_detection.py cube:=WhiteCube
+
+# EXTRA: Once the cubes have been placed, you should be able to monitor their estimated position using:
+ros2 topic list
+# From the (absolute truth) GzSim plugin:
+ros2 topic echo /BlueCube/ObjectPose
+ros2 topic echo /GreenCube/ObjectPose
+ros2 topic echo /RedCube/ObjectPose
+ros2 topic echo /WhiteCube/ObjectPose
+# From the object pose estimation ROS 2 node:
+ros2 topic echo /BlueCube/ObjectPoseEstimation
+ros2 topic echo /GreenCube/ObjectPoseEstimation
+ros2 topic echo /RedCube/ObjectPoseEstimation
+ros2 topic echo /WhiteCube/ObjectPoseEstimation
 ```

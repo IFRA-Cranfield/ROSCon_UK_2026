@@ -2,8 +2,8 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ROS2EnvironmentLaunch.md for better detail about the ROS 2 Environment Launch process.
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/humble/packages to check all available standard ros2srrc robot + end-effector configurations.
+- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble-gzfortress/instructions/ROS2EnvironmentLaunch.md for better detail about the ROS 2 Environment Launch process.
+- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/humble-gzfortress/packages to check all available standard ros2srrc robot + end-effector configurations.
 
 </br>
 
@@ -63,7 +63,7 @@ ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur5e config:=ur5
 
 __RVIZ-based Robot Control__
 
-Once the environment is launched, you will be able to control the robot using RViZ's interactive HMI. Follow these steps:
+Once the environment is launched, you will be able to control the robot using RViz's interactive HMI. Follow these steps:
 
 - Under the "PLANNING" tab, make sure that the Robot Arms planning group is selected (if the launched robot has an end-effector, the EE could be selected by default).
 - Under the "CONTEXT" tab, select the MOVEMENT TYPE: PTP for Joint-Space movement, LIN for Cartesian-Space movement.
@@ -83,6 +83,7 @@ Once the environment is launched, you will be able to control the robot using RV
 # ABB IRB-120:
 ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_irb120 config:=irb120_1
 ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_irb120 config:=irb120_2
+ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_irb120 config:=irb120_21
 ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_irb120 config:=irb120_3
 
 # ABB IRB-1200:
@@ -96,10 +97,10 @@ ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur3 config:=ur3_
 ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur3 config:=ur3_2
 ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur3 config:=ur3_3
 
-# UR5:
-ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur5 config:=ur5_1
-ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur5 config:=ur5_2
-ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur5 config:=ur5_3
+# UR5e:
+ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur5e config:=ur5e_1
+ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur5e config:=ur5e_2
+ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur5e config:=ur5e_3
 
 # UR10e:
 ros2 launch ros2srrc_launch moveit2.launch.py package:=ros2srrc_ur10e config:=ur10e_1

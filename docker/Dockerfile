@@ -1,4 +1,4 @@
-# ROSCon UK 2026: ROS 2 Humble with Gazebo Classic.
+# ROSCon UK 2026: ROS 2 Humble with Gazebo Fortress.
 
 # Build from the repository root:
 # docker build -f docker/Dockerfile -t rosconuk26:humble .
@@ -36,9 +36,16 @@ RUN apt-get update && apt-get install -y \
 
 # Gazebo Simulator:
 RUN apt-get update && apt-get install -y \
-    gazebo \
-    ros-humble-gazebo-ros2-control \
-    ros-humble-gazebo-ros-pkgs \
+    curl \
+    lsb-release \
+    && curl -sSL https://packages.osrfoundation.org/gazebo.gpg \
+        --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] https://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" \
+        > /etc/apt/sources.list.d/gazebo-stable.list \
+    && apt-get update && apt-get install -y \
+    gz-fortress \
+    ros-humble-ros-gz \
+    ros-humble-gz-ros2-control \
     && rm -rf /var/lib/apt/lists/*
 
 # ============================================================== #
@@ -48,20 +55,6 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /dev_ws
 RUN mkdir -p /dev_ws/src && \
     ln -s /dev_ws /root/dev_ws
-
-# ============================================================== #
-# gazebo_ros2_control 0.4.6 workaround:
-# ============================================================== #
-
-RUN apt-get update && \
-    apt-get remove -y ros-humble-gazebo-ros2-control && \
-    rm -rf /var/lib/apt/lists/*
-
-WORKDIR /dev_ws/src
-
-RUN git clone https://github.com/ros-controls/gazebo_ros2_control.git && \
-    cd gazebo_ros2_control && \
-    git reset --hard 9a3736c
 
 # ============================================================== #
 # ROBOT DRIVERS:
@@ -94,15 +87,13 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /dev_ws/src
 
-RUN git clone -b humble https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.git
+RUN git clone -b humble-gzfortress https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.git
 
-RUN git clone -b humble https://github.com/IFRA-Cranfield/IFRA_LinkAttacher.git
-RUN git clone -b humble https://github.com/IFRA-Cranfield/IFRA_ObjectPose.git
-RUN git clone -b humble https://github.com/IFRA-Cranfield/IFRA_LinkPose.git
+RUN git clone -b humble-gzfortress https://github.com/IFRA-Cranfield/IFRA_ObjectPose.git
 RUN git clone -b humble https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.git
 
-RUN git clone -b humble https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics.git
-RUN git clone -b humble https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics.git
+RUN git clone -b humble-gzfortress https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics.git
+RUN git clone -b humble-gzfortress https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics.git
 
 # Include the local workshop checkout from the Docker build context.
 COPY . /dev_ws/src/ROSCon_UK_2026/

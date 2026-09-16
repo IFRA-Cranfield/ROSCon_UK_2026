@@ -100,7 +100,7 @@ def main(args=None):
     # ROBOT:
     ROBOT = RBT()
     # END-EFFECTOR:
-    ENDEFFECTOR = parallelGR(["RedCube", "BlueCube", "WhiteCube", "GreenCube"], "irb120", "EE_egp64")
+    ENDEFFECTOR = parallelGR()
 
     # ===== CUBE PICK & PLACE TASK ===== #
     
@@ -166,7 +166,7 @@ def main(args=None):
     InputPose = Robpose()
     InputPose.x = 0.6
     InputPose.y = 0.7
-    InputPose.z = 0.883
+    InputPose.z = 0.873
     InputPose.qx = 0.0
     InputPose.qy = 1.0
     InputPose.qz = 0.0
@@ -189,7 +189,7 @@ def main(args=None):
     print("Gripper -> CLOSE")
     print("")
 
-    RES = ENDEFFECTOR.CLOSE(35.0)
+    RES = ENDEFFECTOR.CLOSE(75.0)
 
     if RES["Success"]:
         print("Action executed!")

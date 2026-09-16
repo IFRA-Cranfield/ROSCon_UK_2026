@@ -2,8 +2,8 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
-- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/humble/instructions/Examples.md for more detail about how Cranfield University's ABB IRB-120 Robot Cell is operated (irb120_CranfieldRobotics package).
+- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble-gzfortress/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
+- https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/humble-gzfortress/instructions/Examples.md for more detail about how Cranfield University's ABB IRB-120 Robot Cell is operated (irb120_CranfieldRobotics package).
 
 ## C1: Operate a Robot Manipulator using ROS 2 Topics, Services and Actions
 
@@ -18,7 +18,7 @@ You will have to follow these steps:
     ros2 launch ros2srrc_launch moveit2.launch.py package:=rosconuk26 config:=rosconuk26_2  # IRB-120 + Schunk EGP-64 Gripper.
     ```
 2. In a new Terminal Shell, execute the Robot Monitoring ROS 2 Subscriber Nodes (/Robpose and /joint_states).
-3. In another Terminal Shell, execute the Robot Movement ROS 2 Actions (/Move and /RobMove).
+3. In another Terminal Shell, execute the Robot Movement ROS 2 Actions (/Move and /Robmove).
 
 __NOTE: After testing some movements in the ABB IRB-120, feel free to launch the Gazebo+MoveIt 2 Environment for other Robot Manipulators (Exercise A2), and test the ROS 2 Tools in them!__
 
@@ -41,9 +41,9 @@ The /joint_states topic publishes the execution-time robot joint position and ve
 ros2 topic echo /joint_states
 ```
 
-### Robot Movements using ROS 2 Actions (/Move & /RobMove)
+### Robot Movements using ROS 2 Actions (/Move & /Robmove)
 
-Robot movements in our ROS 2 Sim-to-Real Robot Control framework are controlled via specific ROS 2 Actions. The two main ROS 2 actions for movement are /Move and /RobMove.
+Robot movements in our ROS 2 Sim-to-Real Robot Control framework are controlled via specific ROS 2 Actions. The two main ROS 2 actions for movement are /Move and /Robmove.
 
 __Move Action__
 
@@ -72,7 +72,7 @@ __MoveR__: The Robot rotates the selected joint a specific amount of degrees. (J
 ros2 action send_goal -f /Move ros2srrc_data/action/Move "{action: 'MoveR', mover: {joint: '--', value: 0.00}, speed: 1.0}"
 ```
 
-__MoveROT__: The Robot rotates/orientates the End-Effector frame according to the input: EulerAngles(yaw,pitch,roll). THE ROT(yaw,pitch,roll) determines the ADDED ROTATION of the End-Effector, which is applied to the END-EFFECTOR COORDINATE FRAME. (UNIT: def)
+__MoveROT__: The Robot rotates/orientates the End-Effector frame according to the input: EulerAngles(yaw,pitch,roll). THE ROT(yaw,pitch,roll) determines the ADDED ROTATION of the End-Effector, which is applied to the END-EFFECTOR COORDINATE FRAME. (UNIT: deg)
 ```sh
 ros2 action send_goal -f /Move ros2srrc_data/action/Move "{action: 'MoveROT', moverot: {yaw: 0.00, pitch: 0.00, roll: 0.00}, speed: 1.0}"
 ```
@@ -89,14 +89,14 @@ ros2 action send_goal -f /Move ros2srrc_data/action/Move "{action: 'MoveG', move
 
 _NOTE: The Robot MOVEMENT SPEED is controlled by the "speed" parameter when executing the specific ROS 2 action. The value must be (0,1]. being 1 the maximum velocity and 0 the null velocity (which is not valid -> A small value must be defined, e.g.: 0.01 represents a very slow movement)._
 
-__RobMove Action__
+__Robmove Action__
 
-The /RobMove action is used to move the robot’s end-effector to a specific end-effector pose. It allows for two types of movement:
+The /Robmove action is used to move the robot’s end-effector to a specific end-effector pose. It allows for two types of movement:
 
 - PTP (Point-to-Point): The robot moves directly to the target pose via an optimal path in joint space.
 - LIN (Linear): The robot moves in a straight line between its current pose and the target pose.
 
-To execute a /RobMove action, the following parameters need to be defined:
+To execute a /Robmove action, the following parameters need to be defined:
 
 - The TYPE of movement: It can be Point-to-Point ("PTP"), or LINEAR ("LIN").
 - The speed at which the robot will execute the action.
@@ -126,7 +126,7 @@ _NOTE: The Robot MOVEMENT SPEED is controlled by the "speed" parameter when exec
 
 2. In 2 different terminal shells, execute the Robot Monitoring ROS 2 Topic Subscribers.
     ```sh
-    ros 2 topic echo /joint_states
+    ros2 topic echo /joint_states
     ros2 topic echo /Robpose
     ```
 
@@ -174,6 +174,6 @@ _NOTE: The Robot MOVEMENT SPEED is controlled by the "speed" parameter when exec
     # MoveG:
     ros2 action send_goal -f /Move ros2srrc_data/action/Move "{action: 'MoveG', moveg: 0.0, speed: 1.0}"
 
-    # For RobMove, check the current robot state in /Robpose, and feel free to adjust the xyz,qxqyqzqw values as you wish:
+    # For Robmove, check the current robot state in /Robpose, and feel free to adjust the xyz,qxqyqzqw values as you wish:
     ros2 action send_goal -f /Robmove ros2srrc_data/action/Robmove "{type: '---', speed: 1.0, x: 0.0, y: 0.0, z: 0.0, qx: 0.0, qy: 0.0, qz: 0.0, qw: 0.0}" # TYPE: PTP or LIN.
     ```

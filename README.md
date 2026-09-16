@@ -33,7 +33,7 @@
 
 <!--
 
-  README.md TEMPLATE obtined from:
+  README.md template obtained from:
       https://github.com/othneildrew/Best-README-Template
       AUTHOR: OTHNEIL DREW 
 
@@ -91,7 +91,7 @@
 
 ### Open-Source Tool for the Simulation and Control of any Robot Arm in ROS 2
 
-We are excited to welcome you to our hands-on workshop at ROSCon UK 2026, where we will explore a modular, open-source framework for simulating and controlling robot manipulators using ROS 2, MoveIt 2, and Gazebo. The framework is called ros2_SimRealRobotControl (ros2srrc), and is publicly available at https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.
+We are excited to welcome you to our hands-on workshop at ROSCon UK 2026, where we will explore a modular, open-source framework for simulating and controlling robot manipulators using ROS 2, MoveIt 2, and Gazebo. The framework is called ros2_SimRealRobotControl (ros2srrc), and is publicly available at https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/humble-gzfortress.
 
 Developed by the IFRA-Cranfield Research Group at Cranfield University, this framework is designed to streamline the design, deployment, and operation of robotic workcells—whether you are working on industrial robots, collaborative robots, or research prototypes. Our aim is to provide you with a standardised, reusable, and flexible development workflow that supports teaching, research, prototyping, and real-world applications. 
 
@@ -110,11 +110,11 @@ We encourage you to actively participate, ask questions, and share your own insi
 
 The IFRA-Cranfield/ROSCon_UK_2026 repository contains all the exercises, resources, and example solutions that will be used during the workshop. Having it installed in advance will ensure you can follow each step, replicate demonstrations, and continue experimenting after the session.  
 
-The repository has 3 branches, which means that is available for 3 different ROS 2 environments:
+The repository has 3 branches, which means that it is available for 3 different ROS 2 environments:
 
 - humble: Ubuntu 22.04, ROS 2 Humble, and Gazebo Classic
-- humble_gzfortress: Ubuntu 22.04, ROS 2 Humble, and Gazebo (Ignition) Fortress
-- jazzy: Ubuntu 24.04, ROS 2 Jazzy, and Gazebo (Ignition) Harmonic
+- humble-gzfortress: Ubuntu 22.04, ROS 2 Humble, and Gazebo Fortress
+- jazzy: Ubuntu 24.04, ROS 2 Jazzy, and Gazebo Harmonic
 
 ### Intelligent Flexible Robotics and Assembly Group
 
@@ -142,14 +142,14 @@ Centre for Robotics and Assembly:
 <!-- DOCUMENTATION -->
 ## Documentation
 
-__INSTALLATION__: Before the workshop, please make sure you follow the installation instructions, which can be found [here](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble/instructions). The repository can be installed and the ROS 2 environment can be reproduced and the tasks executed in 2 different ways:
+__INSTALLATION__: Before the workshop, please make sure you follow the installation instructions, which can be found [here](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble-gzfortress/instructions). The repository can be installed and the ROS 2 environment can be reproduced and the tasks executed in 2 different ways:
 
-- By installing ROS 2 Humble, all the required packages and the ROSCon_UK_26 repository on a Ubuntu 22.04 PC.
+- By installing ROS 2 Humble, all the required packages and the ROSCon_UK_2026 repository on an Ubuntu 22.04 PC.
 - By building and running the provided rosconuk26-docker image.
 
-__TASKS__: The instructions to undertake the practical exercises can be found in the [tasks folder](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble/tasks).
+__TASKS__: The instructions to undertake the practical exercises can be found in the [tasks folder](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble-gzfortress/tasks).
 
-__SOLUTIONS__: Some of the solutions to the exercises can be found in the [solutions folder](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble/solutions), humble-solution branch.
+__SOLUTIONS__: Some of the solutions to the exercises can be found in the [solutions folder](https://github.com/IFRA-Cranfield/ROSCon_UK_2026/tree/humble-gzfortress/solutions).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -225,6 +225,15 @@ __SOLUTIONS__: Some of the solutions to the exercises can be found in the [solut
   LinkedIn: https://www.linkedin.com/in/phil-webb-64283223/
   <br />
   Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415 
+  <br />
+  <br />
+  Naroa Núñez-Calvo - PhD Student and Researcher at Ikerlan S. Coop.
+  <br />
+  E-mail: nnunez@ikerlan.es
+  <br />
+  LinkedIn: https://www.linkedin.com/in/naroa-nunez-calvo/
+  <br />
+  Profile: https://www.ikerlan.es/en/technologies/control-robotics
   <br />
 </p>
 

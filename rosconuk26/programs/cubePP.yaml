@@ -1,8 +1,6 @@
 Specifications:
   Robot: "irb120"
   EndEffector: "ParallelGripper"
-  EELink: "EE_egp64"
-  Objects: ["RedCube","GreenCube","WhiteCube","BlackCube","BlueCube"]
 
 Sequence: 
   
@@ -26,7 +24,7 @@ Sequence:
 
   # STEP 3 - Pick
   # Type: RobMove, LIN
-  # x: 0.6, y: 0.7, z: 0.883, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0
+  # x: 0.6, y: 0.7, z: 0.873, qx: 0.0, qy: 1.0, qz: 0.0, qw: 0.0
   # Speed: 0.1
   # Delay: 1.0
 
@@ -35,7 +33,7 @@ Sequence:
 
   # STEP 4 - Close Gripper
   # Type: ParallelGripper -> CLOSE
-  # Value: 35.0
+  # Value: 75.0
   # Delay: 1.0
 
   - Step: 4
