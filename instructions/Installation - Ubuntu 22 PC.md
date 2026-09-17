@@ -196,11 +196,14 @@ Some workshop exercises use camera images to detect objects and estimate their p
 Installing these libraries enables the perception components used in the workshop’s vision-guided pick-and-place exercise.
 
 ```sh
-# Install OpenCV:
-pip install opencv-contrib-python
+# Install pip:
+sudo apt-get install python3-pip
 
-# Install YOLO:
-pip install ultralytics
+# Install OpenCV and YOLO:
+python3 -m pip install "numpy<2" opencv-contrib-python ultralytics
+
+# Install ROS 2 <-> OpenCV bridge:
+sudo apt-get install ros-humble-cv-bridge
 ```
 
 ## PART E: Install the IFRA-Cranfield/ROSCon_UK_2026 repository
