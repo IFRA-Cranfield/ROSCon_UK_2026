@@ -141,4 +141,12 @@ RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc && \
     echo "[ -f /dev_ws/install/local_setup.bash ] && source /dev_ws/install/local_setup.bash" >> /root/.bashrc && \
     echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> /root/.bashrc
 
+# ============================================================== #
+# ROS_DOMAIN_ID -> This is the ROS 2 domain ID for your ROS 2 system. It allows you to run multiple ROS 2 systems on the same network without them interfering with each other. The default value is 0, but you can change it to any integer between 0 and 232.
+# ROS_LOCALHOST_ONLY -> This means your ROS 2 system, and its topics, services, and actions will not be visible to other computers on the local network.
+# ============================================================== #   
+
+RUN echo "ROS_DOMAIN_ID=0" >> /root/.bashrc && \ 
+    echo "ROS_LOCALHOST_ONLY=1" >> /root/.bashrc 
+
 CMD ["bash"]
