@@ -146,7 +146,7 @@ RUN echo "source /opt/ros/jazzy/setup.bash" >> /root/.bashrc && \
 # ROS_LOCALHOST_ONLY -> This means your ROS 2 system, and its topics, services, and actions will not be visible to other computers on the local network.
 # ============================================================== #   
 
-RUN echo "ROS_DOMAIN_ID=0" >> /root/.bashrc && \ 
-    echo "ROS_LOCALHOST_ONLY=1" >> /root/.bashrc 
+RUN echo "export ROS_DOMAIN_ID=0" >> /root/.bashrc && \ 
+    echo "export ROS_LOCALHOST_ONLY=1" >> /root/.bashrc 
 
 CMD ["bash"]
