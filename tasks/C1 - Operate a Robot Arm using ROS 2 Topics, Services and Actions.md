@@ -126,7 +126,7 @@ _NOTE: The Robot MOVEMENT SPEED is controlled by the "speed" parameter when exec
 
 2. In 2 different terminal shells, execute the Robot Monitoring ROS 2 Topic Subscribers.
     ```sh
-    ros 2 topic echo /joint_states
+    ros2 topic echo /joint_states
     ros2 topic echo /Robpose
     ```
 
