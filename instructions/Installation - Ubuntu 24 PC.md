@@ -87,6 +87,23 @@ These components provide the foundation for the workshop: ROS 2 enables communic
     export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     ```
 
+    For the workshop, add the following lines to `~/.bashrc` and run them in any already-open ROS terminal:
+
+    ```sh
+    export ROS_DOMAIN_ID=0
+    export ROS_LOCALHOST_ONLY=1
+    ```
+
+    Localhost-only communication keeps each PC's ROS nodes isolated from other workshop PCs, so everyone can use domain 0. Use these settings consistently in every terminal that launches ROS nodes.
+
+    Enable multicast on the loopback interface before launching ROS, and repeat this command **after each PC reboot**:
+
+    ```sh
+    sudo ip link set lo multicast on
+    ```
+
+    This also applies to a native Ubuntu installation: Cyclone DDS uses loopback for localhost-only discovery. Enabling loopback multicast avoids the multicast warning and participant-index exhaustion when starting multiple local ROS processes.
+
 ## PART B: Download and install ROS 2 Drivers for ABB and UR robots
 
 Although ros2srrc supports a range of robot models in simulation, real robot control through the framework has so far been tested only with ABB and Universal Robots (UR) hardware. This section therefore installs the corresponding ROS 2 drivers, which provide the communication interfaces needed to send commands to physical robots and receive feedback from their controllers.

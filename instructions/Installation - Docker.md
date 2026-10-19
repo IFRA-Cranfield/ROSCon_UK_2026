@@ -19,7 +19,7 @@ The procedure is divided into three parts, followed by the execution instruction
 
 - **Part A:** Install Docker Engine and the host tools.
 - **Part B:** Download the workshop repository.
-- **Part C:** Build the workshop image.
+- **Part C:** Build or download the workshop image.
 - **Execution Instructions:** Start the development container, launch the simulation and rebuild your workshop changes.
 
 **Terminal convention:** Commands marked **HOST** run in your normal Ubuntu terminal. Commands marked **CONTAINER** run in a terminal opened inside the Docker container.
@@ -86,11 +86,15 @@ The local repository contains the [Dockerfile](../docker/Dockerfile), the `rosco
     git clone -b jazzy https://github.com/IFRA-Cranfield/ROSCon_UK_2026.git
     ```
 
-## PART C: Build the Docker Image
+## PART C: Build or Download the Docker Image
 
 The Dockerfile installs the workshop dependencies, downloads the supporting repositories and builds the ROS 2 workspace at `/dev_ws`. It also configures the ROS environment for interactive Bash terminals.
 
-6. Build the image from the repository root:
+6. Choose **one** of the following alternatives to prepare the image:
+
+    **Option A: Build the image locally**
+
+    Build the image from the repository root:
 
     ```sh
     # HOST:
@@ -101,6 +105,18 @@ The Dockerfile installs the workshop dependencies, downloads the supporting repo
     The final `.` selects the current directory as the build context, including the local workshop files. The name `rosconuk26:jazzy` identifies the resulting image. Wait for the build to finish successfully before starting a container.
 
     The first build downloads and compiles the environment and can take some time. Subsequent builds reuse completed steps where possible. For more detailed build output, add `--progress=plain` to the command.
+
+    **Option B: Download the prebuilt image from GitHub Container Registry (GHCR)**
+
+    Once the workshop image has been published and made public on GHCR, download it and give it the local name used by the execution instructions:
+
+    ```sh
+    # HOST:
+    sudo docker pull ghcr.io/ifra-cranfield/roscon_uk_2026:jazzy
+    sudo docker tag ghcr.io/ifra-cranfield/roscon_uk_2026:jazzy rosconuk26:jazzy
+    ```
+
+    This option downloads the already-built workspace, so you can skip the local Docker build. Both alternatives provide the image as `rosconuk26:jazzy`; continue with step 7 and the same execution instructions. Keep the local repository from Part B for editing the workshop exercises.
 
 7. Check that the image is available:
 
@@ -113,7 +129,18 @@ The Dockerfile installs the workshop dependencies, downloads the supporting repo
 
 The following steps create a named container, `rosconuk26-docker`, and connect your local repository to `/dev_ws/src/ROSCon_UK_2026` inside it using a [Docker bind mount](https://docs.docker.com/engine/storage/bind-mounts/). Only the workshop repository is mounted; the supporting packages and compiled workspace remain inside the container.
 
-8. Enable access to your desktop display:
+8. Prepare loopback networking and enable access to your desktop display:
+
+    Enable multicast on the loopback interface **on the Ubuntu host, outside Docker**:
+
+    ```sh
+    # HOST: Repeat after each host reboot, before launching ROS.
+    sudo ip link set lo multicast on
+    ```
+
+    This allows Cyclone DDS to discover multiple local ROS processes when `ROS_LOCALHOST_ONLY=1`, avoiding the loopback multicast warning and participant-index exhaustion. The container uses `--network host`, so it shares the host's loopback interface. Keep localhost-only enabled to isolate ROS communication between workshop PCs.
+
+    Then allow access to the desktop display:
 
     ```sh
     # HOST: Run from a terminal in your Ubuntu desktop session, without sudo.
@@ -144,7 +171,7 @@ The following steps create a named container, `rosconuk26-docker`, and connect y
         bash
     ```
     
-    You are now inside the container. The image automatically sources ROS 2 Jazzy and `/dev_ws/install/local_setup.bash` when an interactive Bash terminal opens.
+    You are now inside the container. The image automatically sources ROS 2 Jazzy and `/dev_ws/install/local_setup.bash` when an interactive Bash terminal opens. It also sets `ROS_DOMAIN_ID=0` and `ROS_LOCALHOST_ONLY=1`. All workshop PCs can use domain 0 while ROS communication is restricted to each PC.
 
 10. Build the current workshop files and check the environment:
 
@@ -217,6 +244,7 @@ The following steps create a named container, `rosconuk26-docker`, and connect y
 
     ```sh
     # HOST:
+    sudo ip link set lo multicast on
     xhost +si:localuser:root
     sudo docker start -ai rosconuk26-docker
     ```
