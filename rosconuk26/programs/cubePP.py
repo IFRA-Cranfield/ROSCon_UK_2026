@@ -100,7 +100,7 @@ def main(args=None):
     # ROBOT:
     ROBOT = RBT()
     # END-EFFECTOR:
-    ENDEFFECTOR = parallelGR(["RedCube", "BlueCube", "WhiteCube", "GreenCube"], "irb120", "EE_egp64")
+    ENDEFFECTOR = parallelGR()
 
     # ===== CUBE PICK & PLACE TASK ===== #
 
