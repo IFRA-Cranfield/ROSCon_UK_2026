@@ -19,7 +19,7 @@ The procedure is divided into three parts, followed by the execution instruction
 
 - **Part A:** Install Docker Engine and the host tools.
 - **Part B:** Download the workshop repository.
-- **Part C:** Build the workshop image.
+- **Part C:** Build or download the workshop image.
 - **Execution Instructions:** Start the development container, launch the simulation and rebuild your workshop changes.
 
 **Terminal convention:** Commands marked **HOST** run in your normal Ubuntu terminal. Commands marked **CONTAINER** run in a terminal opened inside the Docker container.
@@ -86,11 +86,15 @@ The local repository contains the [Dockerfile](../docker/Dockerfile), the `rosco
     git clone -b humble https://github.com/IFRA-Cranfield/ROSCon_UK_2026.git
     ```
 
-## PART C: Build the Docker Image
+## PART C: Build or Download the Docker Image
 
 The Dockerfile installs the workshop dependencies, downloads the supporting repositories and builds the ROS 2 workspace at `/dev_ws`. It also configures the ROS environment for interactive Bash terminals.
 
-6. Build the image from the repository root:
+6. Choose **one** of the following alternatives to prepare the image:
+
+    **Option A: Build the image locally**
+
+    Build the image from the repository root:
 
     ```sh
     # HOST:
@@ -101,6 +105,18 @@ The Dockerfile installs the workshop dependencies, downloads the supporting repo
     The final `.` selects the current directory as the build context, including the local workshop files. The name `rosconuk26:humble` identifies the resulting image. Wait for the build to finish successfully before starting a container.
 
     The first build downloads and compiles the environment and can take some time. Subsequent builds reuse completed steps where possible. For more detailed build output, add `--progress=plain` to the command.
+
+    **Option B: Download the prebuilt image from GitHub Container Registry (GHCR)**
+
+    Once the workshop image has been published and made public on GHCR, download it and give it the local name used by the execution instructions:
+
+    ```sh
+    # HOST:
+    sudo docker pull ghcr.io/ifra-cranfield/roscon_uk_2026:humble
+    sudo docker tag ghcr.io/ifra-cranfield/roscon_uk_2026:humble rosconuk26:humble
+    ```
+
+    This option downloads the already-built workspace, so you can skip the local Docker build. Both alternatives provide the image as `rosconuk26:humble`; continue with step 7 and the same execution instructions. Keep the local repository from Part B for editing the workshop exercises.
 
 7. Check that the image is available:
 
