@@ -265,3 +265,34 @@ The following steps create a named container, `rosconuk26-docker`, and connect y
     ```
 
     Removing the container deletes its internal builds and any files saved only inside it. Your mounted workshop checkout remains on the host. Also recreate the container if the host checkout moves or your `DISPLAY` value changes, because the mount path and display setting are fixed when the container is created.
+
+_EXTRA ->_ Use the NVIDIA GPU to render the simulation environment and run the tasks inside Docker:
+
+```sh
+# HOST - Install nvidia-container-toolkit:
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+
+# HOST - Run the Docker image using the following command:
+cd ~/dev_ws/src/ROSCon_UK_2026
+sudo docker run -it \
+    --name rosconuk26-docker \
+    --network host \
+    --ipc=host \
+    --shm-size=2g \
+    --gpus all \
+    --env NVIDIA_VISIBLE_DEVICES=all \
+    --env NVIDIA_DRIVER_CAPABILITIES=graphics,compute,utility,display \
+    --env DISPLAY="$DISPLAY" \
+    --env QT_X11_NO_MITSHM=1 \
+    --env QT_QPA_PLATFORM=xcb \
+    --device /dev/dri \
+    --group-add video \
+    --mount type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix,readonly \
+    --mount "type=bind,source=$(pwd),target=/dev_ws/src/ROSCon_UK_2026" \
+    --workdir /dev_ws \
+    rosconuk26:humble \
+    bash
+```

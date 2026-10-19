@@ -27,7 +27,7 @@ Please do take a look into the object.urdf files:
 - How the CAD files are imported to the urdf.
 - How the {name} variable is defined and used throughout the urdf.
 
-### 2. Spawn objects to the ROSConUK25 UR3 Cell's Gazebo Simulation Environment
+### 2. Spawn objects to the ROSConUK26 ABB IRB-120 Cell's Gazebo Simulation Environment
 
 In ros2_SimRealRobotControl, we use the following command to spawn objects into the Gazebo Simulation Environment:
 
