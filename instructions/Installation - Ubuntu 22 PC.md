@@ -1,4 +1,4 @@
-# Installation - Ubuntu 24.04 PC
+# Installation - Ubuntu 22.04 PC
 
 This workshop is based on [ros2_SimRealRobotControl (ros2srrc)](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/humble-gzfortress), an open-source framework developed by the IFRA-Cranfield Research Group at Cranfield University. It brings together ROS 2, Gazebo and MoveIt 2 to support robot simulation, motion planning and real robot control through a modular structure of robot models, controllers and end-effector configurations.
 
@@ -22,7 +22,7 @@ This section establishes the standard software environment for robot arm simulat
 
 These components provide the foundation for the workshop: ROS 2 enables communication between software components, Gazebo simulates the robot and its environment, `ros2_control` provides the controller infrastructure, and MoveIt 2 supports motion planning and trajectory execution.
 
-1. Install Ubuntu 24.04: https://ubuntu.com/desktop
+1. Install Ubuntu 22.04: https://ubuntu.com/desktop
 
 2. Install Git:
 
@@ -87,6 +87,23 @@ These components provide the foundation for the workshop: ROS 2 enables communic
     export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
     ```
 
+    For the workshop, add the following lines to `~/.bashrc` and run them in any already-open ROS terminal:
+
+    ```sh
+    export ROS_DOMAIN_ID=0
+    export ROS_LOCALHOST_ONLY=1
+    ```
+
+    Localhost-only communication keeps each PC's ROS nodes isolated from other workshop PCs, so everyone can use domain 0. Use these settings consistently in every terminal that launches ROS nodes.
+
+    Enable multicast on the loopback interface before launching ROS, and repeat this command **after each PC reboot**:
+
+    ```sh
+    sudo ip link set lo multicast on
+    ```
+
+    This also applies to a native Ubuntu installation: Cyclone DDS uses loopback for localhost-only discovery. Enabling loopback multicast avoids the multicast warning and participant-index exhaustion when starting multiple local ROS processes.
+
 ## PART B: Download and install ROS 2 Drivers for ABB and UR robots
 
 Although ros2srrc supports a range of robot models in simulation, real robot control through the framework has so far been tested only with ABB and Universal Robots (UR) hardware. This section therefore installs the corresponding ROS 2 drivers, which provide the communication interfaces needed to send commands to physical robots and receive feedback from their controllers.
@@ -127,7 +144,7 @@ The installation also includes the modified MoveIt 2 interface required by ros2s
     git clone -b humble-gzfortress https://github.com/IFRA-Cranfield/IFRA_ObjectPose.git
 
     # IFRA-Cranfield/ros2_RobotiqGripper:
-    git clone -b humble-gzfortress https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.git
+    git clone -b humble https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.git
     
     # Build the workspace:
     cd ~/dev_ws

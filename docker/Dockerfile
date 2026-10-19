@@ -1,7 +1,7 @@
 # ROSCon UK 2026: ROS 2 Humble with Gazebo Fortress.
 
 # Build from the repository root:
-# docker build -f docker/Dockerfile -t rosconuk26:humble .
+# docker build -f docker/Dockerfile -t rosconuk26:humble-gzfortress .
 FROM osrf/ros:humble-desktop-full
 
 # Environment variables:
