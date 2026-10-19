@@ -129,7 +129,18 @@ The Dockerfile installs the workshop dependencies, downloads the supporting repo
 
 The following steps create a named container, `rosconuk26-docker`, and connect your local repository to `/dev_ws/src/ROSCon_UK_2026` inside it using a [Docker bind mount](https://docs.docker.com/engine/storage/bind-mounts/). Only the workshop repository is mounted; the supporting packages and compiled workspace remain inside the container.
 
-8. Enable access to your desktop display:
+8. Prepare loopback networking and enable access to your desktop display:
+
+    Enable multicast on the loopback interface **on the Ubuntu host, outside Docker**:
+
+    ```sh
+    # HOST: Repeat after each host reboot, before launching ROS.
+    sudo ip link set lo multicast on
+    ```
+
+    This allows Cyclone DDS to discover multiple local ROS processes when `ROS_LOCALHOST_ONLY=1`, avoiding the loopback multicast warning and participant-index exhaustion. The container uses `--network host`, so it shares the host's loopback interface. Keep localhost-only enabled to isolate ROS communication between workshop PCs.
+
+    Then allow access to the desktop display:
 
     ```sh
     # HOST: Run from a terminal in your Ubuntu desktop session, without sudo.
@@ -160,7 +171,7 @@ The following steps create a named container, `rosconuk26-docker`, and connect y
         bash
     ```
     
-    You are now inside the container. The image automatically sources ROS 2 Humble and `/dev_ws/install/local_setup.bash` when an interactive Bash terminal opens.
+    You are now inside the container. The image automatically sources ROS 2 Humble and `/dev_ws/install/local_setup.bash` when an interactive Bash terminal opens. It also sets `ROS_DOMAIN_ID=0` and `ROS_LOCALHOST_ONLY=1`. All workshop PCs can use domain 0 while ROS communication is restricted to each PC.
 
 10. Build the current workshop files and check the environment:
 
@@ -233,6 +244,7 @@ The following steps create a named container, `rosconuk26-docker`, and connect y
 
     ```sh
     # HOST:
+    sudo ip link set lo multicast on
     xhost +si:localuser:root
     sudo docker start -ai rosconuk26-docker
     ```
