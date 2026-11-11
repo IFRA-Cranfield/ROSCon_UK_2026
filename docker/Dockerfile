@@ -87,7 +87,7 @@ RUN apt-get update && apt-get install -y \
 
 WORKDIR /dev_ws/src
 
-RUN git clone -b jazzy https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.git
+RUN git clone -b jazzy https://github.com/IFRA-Cranfield/ros2srrc.git
 
 RUN git clone -b jazzy https://github.com/IFRA-Cranfield/IFRA_ObjectPose.git
 RUN git clone -b jazzy https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.git
@@ -104,7 +104,7 @@ COPY . /dev_ws/src/ROSCon_UK_2026/
 
 # Small step required -> Add the move_group_interface_improved.h file:
 RUN cp \
-    /dev_ws/src/ros2_SimRealRobotControl/include/move_group_interface_improved.h \
+    /dev_ws/src/ros2srrc/include/move_group_interface_improved.h \
     /opt/ros/jazzy/include/moveit_ros_planning_interface/moveit/move_group_interface/move_group_interface_improved.hpp
 
 # ============================================================== #

@@ -2,8 +2,8 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/jazzy/ros2srrc_execution/python: Location of the Python primitives (including client Robot and End-effector classes) at ros2srrc_execution.
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
+- https://github.com/IFRA-Cranfield/ros2srrc/tree/jazzy/ros2srrc_execution/python: Location of the Python primitives (including client Robot and End-effector classes) at ros2srrc_execution.
+- https://github.com/IFRA-Cranfield/ros2srrc/blob/jazzy/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
 - https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/jazzy/instructions/Examples.md for more detail about how Cranfield University's ABB IRB-120 Robot Cell is operated (irb120_CranfieldRobotics package).
 
 ## C3: Create a Pick&Place Robot Program using a .py file
@@ -12,7 +12,7 @@ In this task, you will learn how to create and execute a static sequence of Robo
 
 __ros2srrc -> Python classes__
 
-The `ros2srrc_execution` package provides a collection of Python primitives for operating the robot and its end-effector. These primitives are available in the [`ros2srrc_execution/python`](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/jazzy/ros2srrc_execution/python) folder. Internally, the ROS 2 interfaces used to control the robot are based on the `/Move` and `/Robmove` action clients, together with ROS 2 service clients for controlling the end-effector(s). Instead of requiring the user to create and manage these action and service clients directly, the functionality is encapsulated in two Python classes: `ROBOT()` and `ENDEFFECTOR()`.
+The `ros2srrc_execution` package provides a collection of Python primitives for operating the robot and its end-effector. These primitives are available in the [`ros2srrc_execution/python`](https://github.com/IFRA-Cranfield/ros2srrc/tree/jazzy/ros2srrc_execution/python) folder. Internally, the ROS 2 interfaces used to control the robot are based on the `/Move` and `/Robmove` action clients, together with ROS 2 service clients for controlling the end-effector(s). Instead of requiring the user to create and manage these action and service clients directly, the functionality is encapsulated in two Python classes: `ROBOT()` and `ENDEFFECTOR()`.
 
 The `ROBOT()` class provides Python functions for sending robot movement commands, such as joint-space or Cartesian movements, and for monitoring their execution. The `ENDEFFECTOR()` class provides functions for operating the connected tool, such as opening and closing a gripper. These classes hide much of the underlying ROS 2 communication, allowing a Python program to control the robot using simple function calls. This is particularly useful when integrating external software or hardware written in Python, such as vision systems, sensors, object-detection algorithms, or task-planning applications. The external application can create instances of the `ROBOT()` and `ENDEFFECTOR()` classes and use their functions to communicate with and operate the ROS 2 robot system. This exercise demonstrates this approach by implementing a complete pick-and-place operation in Python.
 

@@ -2,7 +2,7 @@
 
 __REFERENCE__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/instructions/RobotOperation.md (bottom lines) for better detail about the ROS 2 Gazebo environment object spawn process.
+- https://github.com/IFRA-Cranfield/ros2srrc/blob/jazzy/instructions/RobotOperation.md (bottom lines) for better detail about the ROS 2 Gazebo environment object spawn process.
 
 </br>
 
@@ -29,7 +29,7 @@ Please do take a look into the object SDF files:
 
 ### 2. Spawn objects to the ROSConUK26 ABB IRB-120 Cell's Gazebo Simulation Environment
 
-In ros2_SimRealRobotControl, we use the following command to spawn objects into the Gazebo Simulation Environment:
+In ros2srrc, we use the following command to spawn objects into the Gazebo Simulation Environment:
 
 ```bash
 ros2 run ros2srrc_execution SpawnObject.py --package "{}" --sdf "{}.sdf" --name "{}" --x {} --y {} --z {}
