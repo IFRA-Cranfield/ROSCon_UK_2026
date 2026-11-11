@@ -28,7 +28,7 @@ sys.dont_write_bytecode = True
 
 # ======= CITE OUR WORK ======= #
 # You can cite our work with the following statements:
-# IFRA-Cranfield (2023) ROS 2 Sim-to-Real Robot Control. URL: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.
+# IFRA-Cranfield (2023) ROS 2 Sim-to-Real Robot Control. URL: https://github.com/IFRA-Cranfield/ros2srrc.
 # IFRA-Cranfield (2026) Robot Simulation and Control Workshop, ROSCon UK 2026. URL: https://github.com/IFRA-Cranfield/ROSCon_UK_2026.
 
 # cubePP.py
@@ -54,7 +54,7 @@ from ros2srrc_data.msg import Xyzypr
 from ros2srrc_data.msg import Ypr
 from ros2srrc_data.msg import Robpose
 
-# IMPORT Python classes (ros2_SimRealRobotControl Python Clients):
+# IMPORT Python classes (ros2srrc Python Clients):
 PATH = os.path.join(get_package_share_directory("ros2srrc_execution"), 'python')
 PATH_robot = PATH + "/robot"
 PATH_endeffector = PATH + "/endeffector"

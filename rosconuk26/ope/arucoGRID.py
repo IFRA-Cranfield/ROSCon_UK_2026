@@ -26,7 +26,7 @@
 
 # ======= CITE OUR WORK ======= #
 # You can cite our work with the following statements:
-# IFRA-Cranfield (2023) ROS 2 Sim-to-Real Robot Control. URL: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.
+# IFRA-Cranfield (2023) ROS 2 Sim-to-Real Robot Control. URL: https://github.com/IFRA-Cranfield/ros2srrc.
 # IFRA-Cranfield (2026) Robot Simulation and Control Workshop, ROSCon UK 2026. URL: https://github.com/IFRA-Cranfield/ROSCon_UK_2026.
 
 # arucoGRID.py

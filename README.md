@@ -26,7 +26,7 @@
 
 # ======= CITE OUR WORK ======= #
 # You can cite our work with the following statements:
-# IFRA-Cranfield (2023) ROS 2 Sim-to-Real Robot Control. URL: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.
+# IFRA-Cranfield (2023) ROS 2 Sim-to-Real Robot Control. URL: https://github.com/IFRA-Cranfield/ros2srrc.
 # IFRA-Cranfield (2026) Robot Simulation and Control Workshop, ROSCon UK 2026. URL: https://github.com/IFRA-Cranfield/ROSCon_UK_2026.
 
 -->
@@ -91,7 +91,7 @@
 
 ### Open-Source Tool for the Simulation and Control of any Robot Arm in ROS 2
 
-We are excited to welcome you to our hands-on workshop at ROSCon UK 2026, where we will explore a modular, open-source framework for simulating and controlling robot manipulators using ROS 2, MoveIt 2, and Gazebo. The framework is called ros2_SimRealRobotControl (ros2srrc), and is publicly available at https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.
+We are excited to welcome you to our hands-on workshop at ROSCon UK 2026, where we will explore a modular, open-source framework for simulating and controlling robot manipulators using ROS 2, MoveIt 2, and Gazebo. The framework is called ros2srrc (ROS 2 Sim-to-Real Robot Control), and is publicly available at https://github.com/IFRA-Cranfield/ros2srrc.
 
 Developed by the IFRA-Cranfield Research Group at Cranfield University, this framework is designed to streamline the design, deployment, and operation of robotic workcells—whether you are working on industrial robots, collaborative robots, or research prototypes. Our aim is to provide you with a standardised, reusable, and flexible development workflow that supports teaching, research, prototyping, and real-world applications. 
 
@@ -189,7 +189,7 @@ __SOLUTIONS__: Some of the solutions to the exercises can be found in the [solut
 <p>
   You can cite our work with the following statements:
   <br />
-  IFRA-Cranfield (2023) ROS 2 Sim-to-Real Robot Control. URL: https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl.
+  IFRA-Cranfield (2023) ROS 2 Sim-to-Real Robot Control. URL: https://github.com/IFRA-Cranfield/ros2srrc.
   <br />
   IFRA-Cranfield (2026) Robot Simulation and Control Workshop, ROSCon UK 2026. URL: https://github.com/IFRA-Cranfield/ROSCon_UK_2026.
 </p>

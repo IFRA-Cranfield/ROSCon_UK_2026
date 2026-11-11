@@ -2,8 +2,8 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ProgramExecution.md for more detailed instructions on how Robot Programs are executed using the __ExecuteProgram__ tool.
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
+- https://github.com/IFRA-Cranfield/ros2srrc/blob/humble/instructions/ProgramExecution.md for more detailed instructions on how Robot Programs are executed using the __ExecuteProgram__ tool.
+- https://github.com/IFRA-Cranfield/ros2srrc/blob/humble/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
 - https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/humble/instructions/Examples.md for more detail about how Cranfield University's ABB IRB-120 Robot Cell is operated (irb120_CranfieldRobotics package).
 
 ## C2: Create a Pick&Place Robot Program using the ExecuteProgram Tool

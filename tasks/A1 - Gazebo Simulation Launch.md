@@ -2,14 +2,14 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ROS2EnvironmentLaunch.md for better detail about the ROS 2 Environment Launch process.
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/humble/packages to check all available standard ros2srrc robot + end-effector configurations.
+- https://github.com/IFRA-Cranfield/ros2srrc/blob/humble/instructions/ROS2EnvironmentLaunch.md for better detail about the ROS 2 Environment Launch process.
+- https://github.com/IFRA-Cranfield/ros2srrc/tree/humble/packages to check all available standard ros2srrc robot + end-effector configurations.
 
 </br>
 
 ## A1: Launch Gazebo Simulation Environment
 
-In this exercise, the objective is to familiarise with the __ROS 2 Environment Launch procedure__ for the Gazebo Simulation Environment. In ros2_SimRealRobotControl (ros2srrc), the Gazebo Environment is launched with the following command:
+In this exercise, the objective is to familiarise with the __ROS 2 Environment Launch procedure__ for the Gazebo Simulation Environment. In ros2srrc, the Gazebo Environment is launched with the following command:
 
 ```sh
 ros2 launch ros2srrc_launch simulation.launch.py package:=PACKAGE_NAME config:=CONFIG_NAME
@@ -17,7 +17,7 @@ ros2 launch ros2srrc_launch simulation.launch.py package:=PACKAGE_NAME config:=C
 
 </br>
 
-Feel free to test the following PACKAGE/CONFIG combinations available in ros2_SimRealRobotControl:
+Feel free to test the following PACKAGE/CONFIG combinations available in ros2srrc:
 
 Package: ros2srrc_irb120
 Config: 

@@ -1,6 +1,6 @@
 # Installation - Ubuntu 22.04 PC
 
-This workshop is based on [ros2_SimRealRobotControl (ros2srrc)](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl), an open-source framework developed by the IFRA-Cranfield Research Group at Cranfield University. It brings together ROS 2, Gazebo and MoveIt 2 to support robot simulation, motion planning and real robot control through a modular structure of robot models, controllers and end-effector configurations.
+This workshop is based on [ros2srrc](https://github.com/IFRA-Cranfield/ros2srrc), an open-source framework developed by the IFRA-Cranfield Research Group at Cranfield University. It brings together ROS 2, Gazebo and MoveIt 2 to support robot simulation, motion planning and real robot control through a modular structure of robot models, controllers and end-effector configurations.
 
 The repository is available in three versions:
 
@@ -143,7 +143,7 @@ Future development aims to extend and validate real robot control across additio
     sudo apt-get install ros-humble-ur
     ```
 
-## PART C: Install IFRA-Cranfield's ros2_SimRealRobotControl ROS 2 Framework
+## PART C: Install IFRA-Cranfield's ros2srrc ROS 2 Framework
 
 This section installs the ros2srrc framework and the additional IFRA-Cranfield packages required for its operation. These supporting packages provide functionality for interacting with objects in simulation, obtaining object and link poses, and controlling supported grippers.
 
@@ -170,17 +170,17 @@ The installation also includes the modified MoveIt 2 interface required by ros2s
     colcon build
     ```
 
-10. Download the ros2_SimRealRobotControl repository:
+10. Download the ros2srrc repository:
 
     ```sh
     cd ~/dev_ws/src
-    git clone https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl
+    git clone https://github.com/IFRA-Cranfield/ros2srrc
     ```
 
-11. Modify the move_group_interface.h script: A modified version of the move_group_interface.h file is required in order to execute the MoveIt 2-based Robot Movements in ros2_SimRealRobotControl. Both the upgraded file and the instructions of how to implement it can be found here: [move_group_interface_improved.h](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/humble/include), but you can as well directly execute this step by running the following command:
+11. Modify the move_group_interface.h script: A modified version of the move_group_interface.h file is required in order to execute the MoveIt 2-based Robot Movements in ros2srrc. Both the upgraded file and the instructions of how to implement it can be found here: [move_group_interface_improved.h](https://github.com/IFRA-Cranfield/ros2srrc/tree/humble/include), but you can as well directly execute this step by running the following command:
 
     ```sh
-    sudo cp ~/dev_ws/src/ros2_SimRealRobotControl/include/move_group_interface_improved.h /opt/ros/humble/include/moveit/move_group_interface/move_group_interface_improved.h
+    sudo cp ~/dev_ws/src/ros2srrc/include/move_group_interface_improved.h /opt/ros/humble/include/moveit/move_group_interface/move_group_interface_improved.h
     ```
 
 12. Build the workspace:

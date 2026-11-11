@@ -2,7 +2,7 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/ROS2EnvironmentLaunch.md for better detail about the ROS 2 Environment Launch process.
+- https://github.com/IFRA-Cranfield/ros2srrc/blob/humble/instructions/ROS2EnvironmentLaunch.md for better detail about the ROS 2 Environment Launch process.
 - https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics for more detail about how the ROS 2 Gazebo + MoveIt 2 Packages were built for Cranfield University's ABB IRB-120 Robot Cell.
 - https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics for more detail about how the ROS 2 Gazebo + MoveIt 2 Packages were built for Cranfield University's UR3 Robot Cell.
 

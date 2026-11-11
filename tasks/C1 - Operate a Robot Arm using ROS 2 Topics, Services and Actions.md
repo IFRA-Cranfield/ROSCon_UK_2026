@@ -2,7 +2,7 @@
 
 __REFERENCES__
 
-- https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
+- https://github.com/IFRA-Cranfield/ros2srrc/blob/humble/instructions/RobotOperation.md for more detail on Robot Operation and Monitoring commands and instructions.
 - https://github.com/IFRA-Cranfield/irb120_CranfieldRobotics/blob/humble/instructions/Examples.md for more detail about how Cranfield University's ABB IRB-120 Robot Cell is operated (irb120_CranfieldRobotics package).
 
 ## C1: Operate a Robot Manipulator using ROS 2 Topics, Services and Actions
@@ -49,7 +49,7 @@ __Move Action__
 
 The /Move action allows you to execute various robot motion commands based on specific movement types and parameters such as speed, joint positions, Cartesian paths, and rotations.
 
-Robot Movements are executed from a single ROS 2 Node in ros2_SimRealRobotControl. A Robot Motion request consists of a simple ROS 2 Action (/Move) call, where the following parameters must be specified:
+Robot Movements are executed from a single ROS 2 Node in ros2srrc. A Robot Motion request consists of a simple ROS 2 Action (/Move) call, where the following parameters must be specified:
 
 - The ACTION that is going to be executed.
 - The speed at which the robot will execute the action.
