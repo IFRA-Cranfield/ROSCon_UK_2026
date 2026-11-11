@@ -1,6 +1,6 @@
 # Installation - Docker
 
-This workshop is based on [ros2_SimRealRobotControl (ros2srrc)](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/tree/humble-gzfortress), an open-source framework developed by the IFRA-Cranfield Research Group at Cranfield University. This installation uses Docker to create an **Ubuntu 22.04 environment with ROS 2 Humble, Gazebo Fortress, ROS 2 Control, MoveIt 2 and ros2srrc**, together with the robot drivers and computer vision libraries required for the workshop.
+This workshop is based on [ros2srrc](https://github.com/IFRA-Cranfield/ros2srrc/tree/humble-gzfortress), an open-source framework developed by the IFRA-Cranfield Research Group at Cranfield University. This installation uses Docker to create an **Ubuntu 22.04 environment with ROS 2 Humble, Gazebo Fortress, ROS 2 Control, MoveIt 2 and ros2srrc**, together with the robot drivers and computer vision libraries required for the workshop.
 
 The software is installed and built inside a Docker image. You do not need to install ROS 2 or Gazebo on your computer directly. When you start a container from this image, you can run the workshop commands inside it and display Gazebo and RViz on your Ubuntu desktop.
 
